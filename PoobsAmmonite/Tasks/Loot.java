@@ -23,6 +23,9 @@ public class Loot extends Task {
 
     public void execute(){
 
+        // its worth mentioning here that i didn't use .within() because it was
+        // throwing an error like NoVirtualMethod or something like that and would
+        // kill the script everytime
         GroundItems.stream().name(c.lootStrings).forEach(groundItem -> {
             if(c.lootZone.containsTile(groundItem.tile()) && groundItem.valid()){
                 if(groundItem.interact("Take")){
